@@ -1,0 +1,42 @@
+[
+  {
+      "model": "parktrackerapi.user",
+      "pk": 1,
+      "fields": {
+          "uid": "AkszXGlcDdOPW7RsTNmpGxTIfed2",
+          "first_name": "Erin",
+          "last_name": "Stephens",
+          "bio": "I like to hike."
+      }
+  },
+  {
+      "model": "parktrackerapi.user",
+      "pk": 2,
+      "fields": {
+          "uid": "abc123",
+          "first_name": "Joe",
+          "last_name": "Jonas",
+          "bio": "I like to sing."
+      }
+  },
+  {
+    "model": "parktrackerapi.user",
+    "pk": 3,
+    "fields": {
+        "uid": "def456",
+        "first_name": "Theo",
+        "last_name": "James",
+        "bio": "I like to run."
+    }
+  },
+  {
+    "model": "parktrackerapi.user",
+    "pk": 4,
+    "fields": {
+        "uid": "ghi789",
+        "first_name": "Elle",
+        "last_name": "Woods",
+        "bio": "I like to read."
+    }
+  }
+]
