@@ -67,3 +67,4 @@ class SiteSerializer(serializers.ModelSerializer):
     class Meta: 
       model = Site
       fields = ('id', 'user', 'site_name', 'park_id', 'image_url', 'description', 'site_type')
+      depth = 1

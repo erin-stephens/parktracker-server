@@ -68,3 +68,4 @@ class TrailSerializer(serializers.ModelSerializer):
     class Meta: 
       model = Trail
       fields = ('id', 'user', 'park_id', 'trail_name', 'length', 'rating', 'description')
+      depth = 1
