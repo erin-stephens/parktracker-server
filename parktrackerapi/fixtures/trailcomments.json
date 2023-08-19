@@ -1,0 +1,38 @@
+[
+  {
+      "model": "parktrackerapi.trailcomment",
+      "pk": 1,
+      "fields": {
+          "author_id": 1,
+          "trail_id": 1,
+          "content": "This hike was awesome!"
+      }
+  },
+  {
+      "model": "parktrackerapi.trailcomment",
+      "pk": 2,
+      "fields": {
+        "author_id": 2,
+        "trail_id": 1,
+        "content": "It was pretty hard for me."
+      }
+  },
+  {
+    "model": "parktrackerapi.trailcomment",
+    "pk": 3,
+    "fields": {
+      "author_id": 4,
+      "trail_id": 3,
+      "content": "I don't even like hiking."
+    }
+  },
+  {
+    "model": "parktrackerapi.trailcomment",
+    "pk": 4,
+    "fields": {
+      "author_id": 4,
+      "trail_id": 2,
+      "content": "Love love love!"
+    }
+  }
+]

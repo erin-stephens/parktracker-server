@@ -1,0 +1,18 @@
+[
+  {
+      "model": "parktrackerapi.favorite",
+      "pk": 1,
+      "fields": {
+          "user_id": 1,
+          "park_id": 2
+      }
+  },
+  {
+      "model": "parktrackerapi.favorite",
+      "pk": 2,
+      "fields": {
+        "user_id": 2,
+        "park_id": 3
+      }
+  }
+]

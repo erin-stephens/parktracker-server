@@ -1,0 +1,50 @@
+[
+  {
+      "model": "parktrackerapi.trail",
+      "pk": 1,
+      "fields": {
+          "user_id": 1,
+          "trail_name": "Trail 1",
+          "park_id": 1,
+          "length": "1.5",
+          "rating": "hard",
+          "description": "This is a trail."
+      }
+  },
+  {
+      "model": "parktrackerapi.trail",
+      "pk": 2,
+      "fields": {
+          "user_id": 2,
+          "trail_name": "Trail 2",
+          "park_id": 2,
+          "length": "4",
+          "rating": "easy",
+          "description": "This is a trail."
+      }
+  },
+  {
+    "model": "parktrackerapi.trail",
+    "pk": 3,
+    "fields": {
+        "user_id": 1,
+        "trail_name": "Trail 3",
+        "park_id": 3,
+        "length": "3",
+        "rating": "moderate",
+        "description": "This is a trail."
+    }
+  },
+  {
+    "model": "parktrackerapi.trail",
+    "pk": 4,
+    "fields": {
+        "user_id": 2,
+        "trail_name": "Trail 4",
+        "park_id": 4,
+        "length": "2.5",
+        "rating": "easy",
+        "description": "This is a trail."
+    }
+  }
+]

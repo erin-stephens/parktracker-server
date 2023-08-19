@@ -1,0 +1,50 @@
+[
+  {
+      "model": "parktrackerapi.site",
+      "pk": 1,
+      "fields": {
+          "user_id": 1,
+          "site_name": "Site 1",
+          "park_id": 2,
+          "image_url": "https://www.usnews.com/object/image/00000154-06a2-d75e-a95c-2ffe83880000/160411-tunnelviewyosemite-stock.jpg?update-time=1460400255218&size=responsive970",
+          "site_type": "overlook",
+          "description": "This is a trail."
+      }
+  },
+  {
+      "model": "parktrackerapi.site",
+      "pk": 2,
+      "fields": {
+          "user_id": 1,
+          "site_name": "Site 2",
+          "park_id": 1,
+          "image_url": "https://www.usnews.com/object/image/00000154-06b4-d3ac-add7-2eb6155c0000/160411-bryceamphitheater-stock.jpg?update-time=1460401402035&size=responsive970",
+          "site_type": "rock formation",
+          "description": "This is an overlook."
+      }
+  },
+  {
+    "model": "parktrackerapi.site",
+    "pk": 3,
+    "fields": {
+        "user_id": 2,
+        "site_name": "Site 3",
+        "park_id": 3,
+        "image_url": "https://eurekaca.simpleviewcrm.com/images/tinymce/300.big.tree2.jpg",
+        "site_type": "big tree",
+        "description": "This is a big tree."
+    }
+  },
+  {
+    "model": "parktrackerapi.site",
+    "pk": 4,
+    "fields": {
+        "user_id": 3,
+        "site_name": "Site 4",
+        "park_id": 4,
+        "image_url": "https://exddilid.cdn.imgeng.in/app/courses/image/preview/108694.jpg",
+        "site_type": "activity",
+        "description": "This is a golf course."
+    }
+  }
+]
