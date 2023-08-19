@@ -8,3 +8,11 @@ class Park(models.Model):
     image_url = models.CharField(max_length=100)
     location = models.CharField(max_length=50)
     park_type = models.CharField(max_length=50)
+
+    @property
+    def favorited(self):
+        return self.__favorited
+    
+    @favorited.setter
+    def favorited(self, value):
+        self.__favortied = value
