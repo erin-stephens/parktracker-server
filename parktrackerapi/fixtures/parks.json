@@ -1,0 +1,46 @@
+[
+  {
+      "model": "parktrackerapi.park",
+      "pk": 1,
+      "fields": {
+          "user_id": "1",
+          "park_name": "Bryce Canyon",
+          "image_url": "https://www.nps.gov/npgallery/GetAsset/633B9F9B-155D-451F-67D1F48982F0B540/proxy/lores",
+          "location": "Utah",
+          "park_type": "National"
+      }
+  },
+  {
+      "model": "parktrackerapi.park",
+      "pk": 2,
+      "fields": {
+          "user_id": "2",
+          "park_name": "Yosemite",
+          "image_url": "https://www.nps.gov/npgallery/GetAsset/B14ED1A5-155D-4519-3E9A21766656F13E/proxy/hires?",
+          "location": "California",
+          "park_type": "National"
+      }
+  },
+  {
+    "model": "parktrackerapi.park",
+    "pk": 3,
+    "fields": {
+        "user_id": "2",
+        "park_name": "Redwoods",
+        "image_url": "https://www.nps.gov/npgallery/GetAsset/031A4302-155D-4519-3E2C6AC3B456E891/proxy/lores",
+        "location": "California",
+        "park_type": "National"
+    }
+  },
+  {
+    "model": "parktrackerapi.park",
+    "pk": 4,
+    "fields": {
+        "user_id": "3",
+        "park_name": "Montgomery Bell",
+        "image_url": "https://tnstateparks.com/assets/images/content-images/activities/5120/mbell_paddling3.jpg",
+        "location": "Tennessee",
+        "park_type": "State"
+    }
+  }
+]
