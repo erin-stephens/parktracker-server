@@ -17,10 +17,11 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include
 from rest_framework import routers
-from parktrackerapi.views import ParkView
+from parktrackerapi.views import ParkView, TrailView
 
 router = routers.DefaultRouter(trailing_slash=False)
 router.register(r'parks', ParkView, 'park')
+router.register(r'trails', TrailView, 'trail')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
