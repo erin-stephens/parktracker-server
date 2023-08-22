@@ -28,16 +28,16 @@ class ParkView(ViewSet):
             Response -- JSON serialized list of game types
         """
         parks = Park.objects.all()
-        uid = request.data["userId"]
+        """uid = request.data['uid']
         user = User.objects.get(uid=uid)
         
         for park in parks:
-            park.favorited = len(Favorite.objects.filter(user=user, park=park)) > 0
+            park.favorited = len(Favorite.objects.filter(user=user, park=park)) > 0"""
         serializer = ParkSerializer(parks, many=True)
         return Response(serializer.data)
       
     def create(self, request):
-        """ POST"""
+        """POST"""
         user = User.objects.get(uid=request.data["userId"])
         park = Park.objects.create(
           user=user,
@@ -86,6 +86,21 @@ class ParkView(ViewSet):
         )
         favorited.delete()
         return Response(None, status=status.HTTP_204_NO_CONTENT)
+    
+    @action(methods=['get'], detail=True)
+    def get_favorites(self, request, pk):
+        try:
+            favorites = Favorite.objects.filter(park_id = pk)
+            serializer = FavoriteSerializer(favorites, many=True)
+            return Response(serializer.data)
+        except Favorite.DoesNotExist:
+            return Response(False)
+
+class FavoriteSerializer(serializers.ModelSerializer):
+    class Meta: 
+        model: Favorite
+        fields = ('id', 'user', 'park')
+        depth = 1
 
 class ParkSerializer(serializers.ModelSerializer):
     """JSON serializer for parks"""
