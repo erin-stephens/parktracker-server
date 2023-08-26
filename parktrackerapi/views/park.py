@@ -28,11 +28,11 @@ class ParkView(ViewSet):
             Response -- JSON serialized list of game types
         """
         parks = Park.objects.all()
-        """uid = request.data['uid']
+        uid = request.META['HTTP_AUTHORIZATION']
         user = User.objects.get(uid=uid)
         
         for park in parks:
-            park.favorited = len(Favorite.objects.filter(user=user, park=park)) > 0"""
+            park.favorited = len(Favorite.objects.filter(user=user, park=park)) > 0
         serializer = ParkSerializer(parks, many=True)
         return Response(serializer.data)
       
