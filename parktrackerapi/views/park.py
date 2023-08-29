@@ -68,7 +68,7 @@ class ParkView(ViewSet):
     
     @action(methods=['post'], detail=True)
     def favorite(self, request, pk):
-        user = User.objects.get(uid =request.data["userId"])
+        user = User.objects.get(uid =request.META['HTTP_AUTHORIZATION'])
         park = Park.objects.get(pk=pk)
         favorited = Favorite.objects.create(
             user=user,
@@ -78,7 +78,7 @@ class ParkView(ViewSet):
     
     @action(methods=['delete'], detail=True)
     def unfavorite(self, request, pk):
-        user = User.objects.get(uid = request.data["userId"])
+        user = User.objects.get(uid = request.META['HTTP_AUTHORIZATION'])
         park = Park.objects.get(pk=pk)
         favorited = Favorite.objects.get(
             user_id = user.id,
@@ -86,19 +86,10 @@ class ParkView(ViewSet):
         )
         favorited.delete()
         return Response(None, status=status.HTTP_204_NO_CONTENT)
-    
-    @action(methods=['get'], detail=True)
-    def get_favorites(self, request, pk):
-        try:
-            favorites = Favorite.objects.filter(park_id = pk)
-            serializer = FavoriteSerializer(favorites, many=True)
-            return Response(serializer.data)
-        except Favorite.DoesNotExist:
-            return Response(False)
 
 class FavoriteSerializer(serializers.ModelSerializer):
     class Meta: 
-        model: Favorite
+        model = Favorite
         fields = ('id', 'user', 'park')
         depth = 1
 
