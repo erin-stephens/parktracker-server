@@ -26,6 +26,9 @@ class TrailView(ViewSet):
             Response -- JSON serialized list of game types
         """
         trails = Trail.objects.all()
+        park_name = request.query_params.get('park', None)
+        if park_name is not None:
+            trails = trails.filter(park_id=park_name)
         serializer = TrailSerializer(trails, many=True)
         return Response(serializer.data)
       
@@ -68,3 +71,4 @@ class TrailSerializer(serializers.ModelSerializer):
     class Meta: 
       model = Trail
       fields = ('id', 'user', 'park_id', 'trail_name', 'length', 'rating', 'description')
+      depth = 1

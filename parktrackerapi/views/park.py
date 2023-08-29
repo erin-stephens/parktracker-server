@@ -28,7 +28,7 @@ class ParkView(ViewSet):
             Response -- JSON serialized list of game types
         """
         parks = Park.objects.all()
-        uid = request.data["userId"]
+        uid = request.META['HTTP_AUTHORIZATION']
         user = User.objects.get(uid=uid)
         
         for park in parks:
@@ -37,7 +37,7 @@ class ParkView(ViewSet):
         return Response(serializer.data)
       
     def create(self, request):
-        """ POST"""
+        """POST"""
         user = User.objects.get(uid=request.data["userId"])
         park = Park.objects.create(
           user=user,
@@ -68,7 +68,7 @@ class ParkView(ViewSet):
     
     @action(methods=['post'], detail=True)
     def favorite(self, request, pk):
-        user = User.objects.get(uid =request.data["userId"])
+        user = User.objects.get(uid =request.META['HTTP_AUTHORIZATION'])
         park = Park.objects.get(pk=pk)
         favorited = Favorite.objects.create(
             user=user,
@@ -78,7 +78,7 @@ class ParkView(ViewSet):
     
     @action(methods=['delete'], detail=True)
     def unfavorite(self, request, pk):
-        user = User.objects.get(uid = request.data["userId"])
+        user = User.objects.get(uid = request.META['HTTP_AUTHORIZATION'])
         park = Park.objects.get(pk=pk)
         favorited = Favorite.objects.get(
             user_id = user.id,
@@ -86,6 +86,12 @@ class ParkView(ViewSet):
         )
         favorited.delete()
         return Response(None, status=status.HTTP_204_NO_CONTENT)
+
+class FavoriteSerializer(serializers.ModelSerializer):
+    class Meta: 
+        model = Favorite
+        fields = ('id', 'user', 'park')
+        depth = 1
 
 class ParkSerializer(serializers.ModelSerializer):
     """JSON serializer for parks"""

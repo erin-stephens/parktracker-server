@@ -27,6 +27,10 @@ class SiteView(ViewSet):
             Response -- JSON serialized list of game types
         """
         sites = Site.objects.all()
+        park_name = request.query_params.get('park', None)
+        if park_name is not None:
+            sites = sites.filter(park_id=park_name)
+            
         serializer = SiteSerializer(sites, many=True)
         return Response(serializer.data)
       
@@ -67,3 +71,4 @@ class SiteSerializer(serializers.ModelSerializer):
     class Meta: 
       model = Site
       fields = ('id', 'user', 'site_name', 'park_id', 'image_url', 'description', 'site_type')
+      depth = 1

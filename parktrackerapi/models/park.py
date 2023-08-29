@@ -15,4 +15,4 @@ class Park(models.Model):
     
     @favorited.setter
     def favorited(self, value):
-        self.__favortied = value
+        self.__favorited = value
