@@ -71,7 +71,7 @@ class TrailView(ViewSet):
         comments = TrailComment.objects.all()
         trail_comments = comments.filter(trail_id=pk)
         
-        serializer = TrailComment(trail_comments, many=True)
+        serializer = TrailCommentSerializer(trail_comments, many=True)
         return Response(serializer.data)
 
 class TrailCommentSerializer(serializers.ModelSerializer):
