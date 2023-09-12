@@ -2,7 +2,8 @@ from django.http import HttpResponseServerError
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
-from parktrackerapi.models import Trail, User, Park
+from rest_framework.decorators import action
+from parktrackerapi.models import Trail, User, Park, TrailComment
 
 
 class TrailView(ViewSet):
@@ -59,12 +60,25 @@ class TrailView(ViewSet):
         trail.save()
         
         return Response(None, status=status.HTTP_204_NO_CONTENT)
-      
-      
+
     def destroy(self, request, pk):
         trail = Trail.objects.get(pk=pk)
         trail.delete()
         return Response(None, status=status.HTTP_204_NO_CONTENT)
+    
+    @action(methods=['get'], detail=True)
+    def comments(self, request, pk):
+        comments = TrailComment.objects.all()
+        trail_comments = comments.filter(trail_id=pk)
+        
+        serializer = TrailComment(trail_comments, many=True)
+        return Response(serializer.data)
+
+class TrailCommentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model= TrailComment
+        fields = ('id', 'trail_id', 'author_id', 'content')
+        depth = 1
 
 class TrailSerializer(serializers.ModelSerializer):
   
