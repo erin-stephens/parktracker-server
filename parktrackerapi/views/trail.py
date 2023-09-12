@@ -78,7 +78,6 @@ class TrailCommentSerializer(serializers.ModelSerializer):
     class Meta:
         model= TrailComment
         fields = ('id', 'trail_id', 'author_id', 'content')
-        depth = 1
 
 class TrailSerializer(serializers.ModelSerializer):
   
