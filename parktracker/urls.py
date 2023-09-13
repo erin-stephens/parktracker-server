@@ -24,7 +24,7 @@ router.register(r'parks', ParkView, 'park')
 router.register(r'trails', TrailView, 'trail')
 router.register(r'sites', SiteView, 'site')
 router.register(r'users', UserView, 'user')
-router.register(r'comments', TrailCommentView, 'comment')
+router.register(r'trailcomments', TrailCommentView, 'trailcomments')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
